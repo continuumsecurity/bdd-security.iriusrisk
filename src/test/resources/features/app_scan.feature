@@ -1,4 +1,4 @@
-@app_scan
+@app_scan @skip
 Feature: Automated Application Security Scanning
   In order to protect user data
   As a n application owner

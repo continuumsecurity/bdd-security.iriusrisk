@@ -1,4 +1,4 @@
-@host_config
+@host_config @skip
 Feature: 
   In order to reduce the risk of vulnerabilities introduced through software running on the host
   As a system owner
@@ -11,5 +11,5 @@ Feature:
     And the <state> ports are selected
     Then the ports should be <ports>
     Examples:
-      |host         |startPort  |endPort  |threads |timeout   |state      |ports      |
-      |localhost    |1          |65535    |100     |500       |open       |80,443     |
+      |host                       |startPort  |endPort  |threads |timeout   |state      |ports      |
+      |community.iriusrisk.com    |1          |65535    |100     |500       |open       |80,443     |

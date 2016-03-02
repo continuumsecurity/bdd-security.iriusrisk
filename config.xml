@@ -10,12 +10,12 @@
     <defaultDriver path="src/test/resources/drivers/chromedriver-linux64">Chrome</defaultDriver>
 
     <!-- Base URL of the application to test -->
-    <baseUrl>http://localhost:8080/</baseUrl>
+    <baseUrl>https://community.iriusrisk.com/</baseUrl>
 
     <!-- A Java class to hold the Selenium steps to test the application in depth. Optionally required for in-depth authn/z and session management testing. -->
-    <class>net.continuumsecurity.examples.ropeytasks.RopeyTasksApplication</class>
+    <class>net.continuumsecurity.IriusRiskApplication</class>
 
-    <sslyze>/opt/sslyze/sslyze.py --regular</sslyze>
+    <sslyze>/usr/local/bin/sslyze_cli.py --regular</sslyze>
 
     <!-- Optional names of the session ID cookies for session management testing. -->
     <sessionIds>
@@ -24,7 +24,7 @@
 
     <!-- the default user to use when logging in to the app for most of the functional requirements -->
     <users>
-        <user username="bob" password="password"/>
+        <user username="bdd-tester" password="bdd tester password"/>
     </users>
 
     <!-- An upstream proxy through which all HTTP traffic must pass before hitting the target
@@ -34,7 +34,7 @@
         <port></port>
     </upstreamProxy>
 
-    <incorrectPassword>SDFsdfwjx1</incorrectPassword>
+    <incorrectPassword>SDFsdfwjx1fsdf42</incorrectPassword>
     <incorrectUsername>bobbles</incorrectUsername>
 
     <!-- Optional login credentials for the Nessus server, the server location is specified in the nessus_scan.story file -->

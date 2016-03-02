@@ -1,4 +1,4 @@
-@data_security
+@data_security @skip
 Feature: Confidentiality of sensitive user data
   In order to protect the confidentiality of my sensitive data
   As a user

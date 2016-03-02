@@ -1,4 +1,4 @@
-@story-authorisation
+@story-authorisation @skip
 Feature: Authorisation and Access Control
   In order to protect my sensitive data
   As a user

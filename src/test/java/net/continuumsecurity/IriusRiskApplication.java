@@ -1,4 +1,4 @@
-package net.continuumsecurity.examples.ropeytasks;
+package net.continuumsecurity;
 
 import net.continuumsecurity.Config;
 import net.continuumsecurity.Credentials;
@@ -7,19 +7,19 @@ import net.continuumsecurity.behaviour.ILogin;
 import net.continuumsecurity.behaviour.ILogout;
 import net.continuumsecurity.web.WebApplication;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 
-public class RopeyTasksApplication extends WebApplication implements ILogin,
+public class IriusRiskApplication extends WebApplication implements ILogin,
         ILogout {
 
-    public RopeyTasksApplication() {
+    public IriusRiskApplication() {
         super();
 
     }
 
     @Override
     public void openLoginPage() {
-        driver.get(Config.getInstance().getBaseUrl() + "user/login");
-        findAndWaitForElement(By.id("username"));
+        driver.get(Config.getInstance().getBaseUrl() + "#!login");
     }
 
     @Override
@@ -29,7 +29,7 @@ public class RopeyTasksApplication extends WebApplication implements ILogin,
         driver.findElement(By.id("username")).sendKeys(creds.getUsername());
         driver.findElement(By.id("password")).clear();
         driver.findElement(By.id("password")).sendKeys(creds.getPassword());
-        driver.findElement(By.name("_action_login")).click();
+        driver.findElement(By.id("loginBtn")).click();
     }
 
     // Convenience method
@@ -39,35 +39,23 @@ public class RopeyTasksApplication extends WebApplication implements ILogin,
 
     @Override
     public boolean isLoggedIn() {
-        driver.get(Config.getInstance().getBaseUrl()+"task/list");
-        if (driver.getPageSource().contains("Tasks")) {
-            return true;
-        } else {
+        try {
+            driver.findElement(By.id("welcomeLabel"));
+        } catch (NoSuchElementException nse) {
             return false;
         }
-    }
-
-    public void viewProfile() {
-        driver.findElement(By.linkText("Profile")).click();
+        return true;
     }
 
     @Override
     public void logout() {
-        driver.findElement(By.linkText("Logout")).click();
-    }
-
-    public void search(String query) {
-        findAndWaitForElement(By.linkText("Tasks")).click();
-        driver.findElement(By.id("q")).clear();
-        driver.findElement(By.id("q")).sendKeys(query);
-        driver.findElement(By.id("search")).click();
+        driver.findElement(By.xpath("//x:div/x:div[2]/x:div/x:div[1]/x:div/x:div/x:div[3]/x:div/x:div[3]/x:div/x:span/x:span[2]")).click();
+        driver.findElement(By.xpath("//x:div[2]/x:div/x:div/x:span[4]/x:span")).click();
     }
 
     public void navigate() {
         openLoginPage();
         login(Config.getInstance().getUsers().getDefaultCredentials());
-        viewProfile();
-        search("test");
     }
 
 }

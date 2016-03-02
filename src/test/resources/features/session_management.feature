@@ -1,4 +1,4 @@
-@session_management
+@session_management @skip
 Feature: 
   In order to protect the integrity of the user session
   As a n application owner

@@ -1,6 +1,0 @@
-[02.03.2016 09:56:34] [INFO] External file loaded with 48 fuzzers
-[02.03.2016 09:56:34] [INFO] Adding 5 Zero Fuzzers to the fuzzing Database
-[02.03.2016 09:56:34] [INFO] Database loaded with 53 fuzzers
-[02.03.2016 09:58:24] [INFO] External file loaded with 48 fuzzers
-[02.03.2016 09:58:24] [INFO] Adding 5 Zero Fuzzers to the fuzzing Database
-[02.03.2016 09:58:24] [INFO] Database loaded with 53 fuzzers

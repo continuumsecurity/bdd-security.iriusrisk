@@ -20,6 +20,7 @@ package net.continuumsecurity.steps;
  ******************************************************************************/
 
 
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -39,7 +40,9 @@ import net.continuumsecurity.web.WebApplication;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Cookie;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -559,6 +562,11 @@ public class WebApplicationSteps {
         credentials.setPassword(((UserPassCredentials) Config.getInstance().getUsers().getDefaultCredentials()).getPassword());
     }
 
+    @And("^the user hits the ESC key$")
+    public void theUserHitsTheESCKey() throws Throwable {
+        Actions action = new Actions(((Browser) app.getAuthTokenManager()).getWebDriver());
+        action.sendKeys(Keys.ESCAPE).build().perform();
+    }
 }
 
 

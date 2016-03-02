@@ -33,5 +33,5 @@ Feature:
       | ECDH-RSA-CAMELLIA128-SHA256    |
       | ECDH-RSA-CAMELLIA256-SHA384    |
     Examples:
-      |host             |port   |
-      |www.google.com   |443    |
+      |host                       |port   |
+      |community.iriusrisk.com    |443    |
